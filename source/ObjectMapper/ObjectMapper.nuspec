@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>objectmapper</id>
+    <version>$version$</version>
+    <title>ObjectMapper</title>
+    <authors>Jon Haywood</authors>
+    <owners>Jon Haywood</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/JonHaywood/ObjectMapper</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A convention-based object to object mapper that just works. It is useful for mapping models to data transfer objects (DTO) and back. Supports flattening and unflattening.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>mapper objectmapper convention map flatten convert</tags>
+  </metadata>
+</package>

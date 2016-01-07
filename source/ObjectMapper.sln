@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectMapper", "ObjectMapper\ObjectMapper.csproj", "{1597B61E-A41C-4527-8EC9-AA8D54FE7C2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectMapper.Tests", "ObjectMapper.Tests\ObjectMapper.Tests.csproj", "{DAB1DAAF-C35C-4B34-B126-DD773FA9BC49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1597B61E-A41C-4527-8EC9-AA8D54FE7C2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1597B61E-A41C-4527-8EC9-AA8D54FE7C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1597B61E-A41C-4527-8EC9-AA8D54FE7C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1597B61E-A41C-4527-8EC9-AA8D54FE7C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAB1DAAF-C35C-4B34-B126-DD773FA9BC49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAB1DAAF-C35C-4B34-B126-DD773FA9BC49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAB1DAAF-C35C-4B34-B126-DD773FA9BC49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAB1DAAF-C35C-4B34-B126-DD773FA9BC49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
