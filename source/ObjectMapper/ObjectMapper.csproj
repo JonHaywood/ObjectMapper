@@ -65,14 +65,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeConverters\ValueToNullable.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="License.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
+    <Exec Command="$(SolutionDir).nuget\nuget pack $(SolutionDir)ObjectMapper\ObjectMapper.csproj -Prop Configuration=Release">
+    </Exec>
   </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.  
   <Target Name="AfterBuild">
   </Target>
   -->
