@@ -47,6 +47,7 @@
     <Compile Include="MappingRules\Flattening.cs" />
     <Compile Include="MappingRules\UnFlattening.cs" />
     <Compile Include="MappingRules\IMappingRule.cs" />
+    <Compile Include="ObjectMapperExtensions.cs" />
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="TypeConverters\ArrayToList.cs" />
     <Compile Include="TypeConverters\GuidToString.cs" />
