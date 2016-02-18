@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionTests.cs" />
     <Compile Include="FlatteningTests.cs" />
     <Compile Include="UnFlatteningTests.cs" />
     <Compile Include="ObjectMapperTests.cs" />

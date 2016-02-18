@@ -53,7 +53,7 @@ namespace ObjectMapper
             return (TDestination) MapInternal(source, new TDestination());
         }
 
-        public TDestination Map<TSource, TDestination>(TSource source) where TDestination : new ()
+        public TDestination Map<TSource, TDestination>(TSource source) where TDestination : new()
         {
             return (TDestination) MapInternal(source, new TDestination());
         }
@@ -61,6 +61,11 @@ namespace ObjectMapper
         public TDestination Map<TSource, TDestination>(TSource source, TDestination existingInstance)
         {
             return (TDestination)MapInternal(source, existingInstance);
+        }
+
+        public IEnumerable<TDestination> Map<TSource, TDestination>(IEnumerable<TSource> source) where TDestination : new()
+        {
+            return source.Select(Map<TSource, TDestination>);
         }
 
         TDestination IObjectMapperContext.Map<TSource, TDestination>(TSource source)
@@ -77,6 +82,9 @@ namespace ObjectMapper
 
         private object MapInternal(object source, object destination)
         {
+            if (source == null)
+                return null;
+
             // first see if there's an objectmap set up for these types
             ObjectMap objectMap;
             maps.TryGetValue(Tuple.Create(source.GetType(), destination.GetType()), out objectMap);
