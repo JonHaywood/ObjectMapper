@@ -44,10 +44,12 @@
     <Compile Include="FuncObjectMap.cs" />
     <Compile Include="IObjectMapperContext.cs" />
     <Compile Include="IObjectMapperInstance.cs" />
+    <Compile Include="IObjectMapperModuleHandler.cs" />
     <Compile Include="MappingRules\Flattening.cs" />
     <Compile Include="MappingRules\UnFlattening.cs" />
     <Compile Include="MappingRules\IMappingRule.cs" />
     <Compile Include="ObjectMapperExtensions.cs" />
+    <Compile Include="ObjectMapperModule.cs" />
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="TypeConverters\ArrayToList.cs" />
     <Compile Include="TypeConverters\GuidToString.cs" />

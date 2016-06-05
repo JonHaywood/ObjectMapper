@@ -34,6 +34,16 @@ namespace ObjectMapper
             Instance.AddConverter(typeConverter);
         }
 
+        public static void RegisterModule(ObjectMapperModule module)
+        {
+            Instance.RegisterModule(module);
+        }
+
+        public static void RegisterModule<T>() where T : ObjectMapperModule, new()
+        {
+            Instance.RegisterModule<T>();
+        }
+
         public static TDestination Map<TDestination>(object source) where TDestination : new()
         {
             return Instance.Map<TDestination>(source);

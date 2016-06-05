@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="CollectionTests.cs" />
     <Compile Include="FlatteningTests.cs" />
+    <Compile Include="ModuleTests.cs" />
     <Compile Include="UnFlatteningTests.cs" />
     <Compile Include="ObjectMapperTests.cs" />
     <Compile Include="ObjectMapTests.cs" />

@@ -34,6 +34,8 @@ namespace ObjectMapper
 
         public void AddMap(ObjectMap objectMap)
         {
+            if (objectMap == null)
+                throw new ArgumentNullException("objectMap");
             var key = Tuple.Create(objectMap.SourceType, objectMap.DestinationType);
             maps.AddOrUpdate(key, objectMap, (k, oldValue) => objectMap);
         }        
@@ -45,7 +47,21 @@ namespace ObjectMapper
 
         public void WithRule(IMappingRule rule)
         {
+            if (rule == null)
+                throw new ArgumentNullException("rule");
             mappingRule = rule;
+        }
+
+        public void RegisterModule(ObjectMapperModule module)
+        {
+            if (module == null)
+                throw new ArgumentNullException("module");
+            module.Configure(this);
+        }
+
+        public void RegisterModule<T>() where T : ObjectMapperModule, new()
+        {
+            RegisterModule(new T());
         }
 
         public TDestination Map<TDestination>(object source) where TDestination : new()
