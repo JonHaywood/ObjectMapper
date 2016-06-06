@@ -1,7 +1,7 @@
 What is ObjectMapper?
 --------------------------
 
-ObjectMapper is simple library that transforms a source object into a destination object of a different type. It uses a convention based approach to determine how one object maps to another. No extensive manual mapping needed!
+ObjectMapper is a simple .NET library that transforms a source object into a destination object of a different type. It uses a convention based approach to determine how one object maps to another. No extensive manual mapping needed!
 
 Why should I map?
 --------------------------
@@ -44,22 +44,22 @@ Say you have the following two objects:
 ```cs
 class Foo1
 {
-	public string Id { get; set; }
+	public Guid Id { get; set; }
 }
 
 class Foo2
 {
-	public Guid Id { get; set; }
+	public string Id { get; set; }
 }
 ```
-Those properties won't map because their types are different. If you always want string to Guid to map, then one way to fix this is to use a TypeConverter.
+Those properties won't map because their types are different. If you always want a Guid to be able to map to a string, then one way to fix this is to use a TypeConverter.
 
 ```cs
-mapper.AddConverter(new StringToGuid());
-var foo2 = mapper.Map<Foo2>(foo1); // The Id property is now set
+mapper.AddConverter(new GuidToString());
+var foo2 = mapper.Map<Foo2>(foo1); // The Id property is now set on foo2
 ```
 
-And you can easily add your own TypeConverters. If the conversion is simple you can even use lambdas:
+And you can easily add your own TypeConverters. Also, if the conversion is simple you can even use lambdas:
 
 ```cs
 class Address
@@ -98,8 +98,8 @@ Done.
 But wait, there's more
 --------------------------
 ObjectMapper also supports:
-* Maps an anonymous types
-* Defining a manual mapping between types (sometimes you just have to do it)
+* Mapping anonymous types
+* Defining a manual mapping between types
 * Flattening and unflattening
 * Replacing the matching algorithm with your own
 * For complex mapping, registering a "module" which contains all your mapping configuration in one place
