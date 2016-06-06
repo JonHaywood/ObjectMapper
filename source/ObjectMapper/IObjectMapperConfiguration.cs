@@ -10,6 +10,7 @@ namespace ObjectMapper
         void AddMap<TObjectMap>() where TObjectMap : ObjectMap, new();
         void AddMap(ObjectMap objectMap);
         void WithRule(IMappingRule rule);
-        void AddConverter(params ITypeConverter[] typeConverter); 
+        void AddConverter(params ITypeConverter[] typeConverter);
+        void AddConverter<TSource, TDestination>(Func<TSource, TDestination> convertFunc);
     }
 }

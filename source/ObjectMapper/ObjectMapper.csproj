@@ -52,6 +52,7 @@
     <Compile Include="ObjectMapperModule.cs" />
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="TypeConverters\ArrayToList.cs" />
+    <Compile Include="TypeConverters\FuncionTypeConverter.cs" />
     <Compile Include="TypeConverters\GuidToString.cs" />
     <Compile Include="TypeConverters\ITypeConverter.cs" />
     <Compile Include="MappingRules\MappingRule.cs" />

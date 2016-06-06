@@ -143,5 +143,23 @@ namespace ObjectMapper.Tests
             for (int i = 0; i < source.List.Length; i++)
                 Assert.Equal(source.List[i], result.List[i]);
         }
+
+        [Trait("Category", Category)]
+        [Fact]
+        public void ShowMapClassToString()
+        {
+            // arrange
+            var model = new PersonModel
+            {
+                Address = new PersonAddress { Address1 = "Address1", Address2 = "Address2" }
+            };
+            Mapper.AddConverter<PersonAddress, string>(source => source.Address1 + ", " + source.Address2);
+
+            // act
+            var result = Mapper.Map<PersonModel, PersonDto>(model);
+
+            // assert
+            Assert.Equal(model.Address.Address1 + ", " + model.Address.Address2, result.Address);
+        }
     }
 }

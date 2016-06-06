@@ -45,6 +45,11 @@ namespace ObjectMapper
             typeConverters.AddRange(converters);
         }
 
+        public void AddConverter<TSource, TDestination>(Func<TSource, TDestination> convertFunc)
+        {
+            typeConverters.Add(new FuncionTypeConverter<TSource, TDestination>(convertFunc));
+        }
+
         public void WithRule(IMappingRule rule)
         {
             if (rule == null)
