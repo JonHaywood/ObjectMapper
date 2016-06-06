@@ -146,7 +146,7 @@ namespace ObjectMapper.Tests
 
         [Trait("Category", Category)]
         [Fact]
-        public void ShowMapClassToString()
+        public void ShowMapClassToStringUsingLambda()
         {
             // arrange
             var model = new PersonModel

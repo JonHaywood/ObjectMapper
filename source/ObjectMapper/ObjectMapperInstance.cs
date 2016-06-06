@@ -47,7 +47,7 @@ namespace ObjectMapper
 
         public void AddConverter<TSource, TDestination>(Func<TSource, TDestination> convertFunc)
         {
-            typeConverters.Add(new FuncionTypeConverter<TSource, TDestination>(convertFunc));
+            typeConverters.Add(new FunctionTypeConverter<TSource, TDestination>(convertFunc));
         }
 
         public void WithRule(IMappingRule rule)
