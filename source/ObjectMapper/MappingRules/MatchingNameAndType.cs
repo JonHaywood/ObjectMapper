@@ -47,7 +47,7 @@ namespace ObjectMapper.MappingRules
             foreach (var sourceProperty in sourceProperties)
             {
                 // make sure this source property is something we can read and isn't excluded
-                if (!sourceProperty.CanRead || sourceProperty.GetGetMethod() == null || (excludedProperties != null && excludedProperties.Contains(sourceProperty.Name))) 
+                if (!IsSourcePropertyValid(sourceProperty)) 
                     continue;
 
                 // find a matching destination property
@@ -67,6 +67,11 @@ namespace ObjectMapper.MappingRules
             }
         }
 
+        protected virtual bool IsSourcePropertyValid(PropertyInfo sourceProperty)
+        {
+            return sourceProperty.CanRead && sourceProperty.GetGetMethod() != null && !excludedProperties.Contains(sourceProperty.Name);
+        }
+
         /// <summary>
         /// Sets the destination property value.
         /// </summary>
@@ -75,7 +80,7 @@ namespace ObjectMapper.MappingRules
         /// <param name="sourcePropertyValue">The source property value.</param>
         /// <param name="destinationProperty">The destination property.</param>
         /// <param name="destination">The destination object to set the value on.</param>
-        protected void SetDestinationPropertyValue(IObjectMapperContext mapperContext, PropertyInfo sourceProperty,
+        protected virtual void SetDestinationPropertyValue(IObjectMapperContext mapperContext, PropertyInfo sourceProperty,
             object sourcePropertyValue, PropertyInfo destinationProperty, object destination)
         {
             // if the types match then just set the value it

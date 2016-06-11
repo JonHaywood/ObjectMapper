@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 using ObjectMapper.Tests.TestClasses;
 using Xunit;
 
@@ -136,6 +137,47 @@ namespace ObjectMapper.Tests
 
             // assert
             Assert.Equal(source.Name, result.Name);
-        }   
+        }
+
+        [Trait("Category", Category)]
+        [Fact(Skip = "Not Implemented Yet")]
+        public void ShouldMapExpandoObject()
+        {
+            // arrange
+            dynamic source = new ExpandoObject();
+            source.Id = 1;
+            source.Name = "Test";
+
+            // act
+            var result = Mapper.Map<PersonDto>((object)source);
+
+            // assert
+            Assert.Equal(source.Id, result.Id);
+            Assert.Equal(source.Name, result.Name);
+        }
+
+        [Trait("Category", Category)]
+        [Fact]
+        public void ShouldMapUsingExistingInstance()
+        {
+            // arrange
+            var source = new PersonModel
+            {
+                Id = 1,
+                Name = "Test"
+            };
+            var destination = new PersonDto
+            {
+                Address = "TestAddress" // property which doesn't exist on model
+            };
+
+            // act
+            var result = Mapper.Map(source, destination);
+
+            // assert
+            Assert.Equal(destination, result);
+            Assert.Equal(source.Id, result.Id);
+            Assert.Equal("TestAddress", result.Address);
+        }
     }
 }
