@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,6 +88,23 @@ namespace ObjectMapper
         public IEnumerable<TDestination> Map<TSource, TDestination>(IEnumerable<TSource> source) where TDestination : new()
         {
             return source.Select(Map<TSource, TDestination>);
+        }
+
+        public IEnumerable<TDestination> Map<TDestination>(IEnumerable source) where TDestination : new()
+        {
+            if (source == null)
+                throw new ArgumentNullException("source");
+
+            var list = new List<TDestination>();
+            var enumerator = source.GetEnumerator();
+
+            while (enumerator.MoveNext())
+            {
+                var element = enumerator.Current;
+                list.Add(Map<TDestination>(element));
+            }
+
+            return list;
         }
 
         TDestination IObjectMapperContext.Map<TSource, TDestination>(TSource source)

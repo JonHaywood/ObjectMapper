@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ObjectMapper.MappingRules;
 using ObjectMapper.TypeConverters;
@@ -63,6 +64,12 @@ namespace ObjectMapper
             where TDestination : new()
         {
             return Instance.Map<TSource, TDestination>(source);
+        }
+
+        public static IEnumerable<TDestination> Map<TDestination>(IEnumerable source) 
+            where TDestination : new()
+        {
+            return Instance.Map<TDestination>(source);
         }
     }
 }
